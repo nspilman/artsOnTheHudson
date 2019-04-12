@@ -83,48 +83,8 @@ def eventpage(request, eventurl):
         variables = {'event':event, 'title':title, 'cssclass':cssclass}
     else:
         variables = {'event':event, 'title':title, 'cssclass':cssclass, 'event_signup':event_signup}
-    
-    if request.method == 'POST':
-        firstname = request.POST['firstname'] 
-        lastname = request.POST['lastname']
-        email = request.POST['email'].lower()
-        try:
-            session = request.POST['session']
-        except:
-            session = ''
 
-        new_order = Order()
-        new_order.name = event.name
-        if session == "":
-            session_record = event_signup.get(parent_event = event)
-            session = session_record.name
-        else:
-            session_record = event_signup.get(name = session)
-        new_order.subname = session
-        new_order.price = session_record.price
-        last_order = Order.objects.all().order_by('order_id').last()
-        if not last_order:
-            new_order.order_id = '100000001'
-        else:
-            last_order_id = last_order.order_id
-            last_order_int = int(last_order_id)
-            new_order_id = last_order_int + 1
-            new_order.order_id = str(new_order_id)
-
-        new_order.email = email
-        new_order.order_type = 'events'
-        new_order.status = 'new'
-        try:
-            person = Person.objects.get(email = new_order.email)
-        except:
-            person = Person(first_name = firstname, last_name = lastname, email = email)
-            person.save()
-
-        new_order.save()
-
-        return redirect('/orders/confirmation/' + str(new_order.order_id))
-
-    return render(request,'website/neweventpage.html', variables)
+    return render(request,'website/eventpage.html', variables)
     
 def education(request):
     return redirect('/education/Headstart/')
@@ -143,32 +103,11 @@ def media(request):
     variables = {'title':title, 'cssclass':cssclass, 'videos':videos}
     return render(request,'website/media.html', variables)
 
-def promo(request,promourl):
-    cssclass = 'amedia'
-    promo = Media.objects.get(url = promourl)
-    title = promo.name + "| Promotional Media | Arts on the Hudson"
-    variables = {'title':title, 'cssclass':cssclass, 'promo':promo}
-    return render(request,'website/video.html', variables)
-
 def contact(request):
     cssclass = 'acontact'
     title = 'Contact | Jersey City | Arts on the Hudson'
     variables = {'title':title, 'cssclass':cssclass,}
-    if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['_replyto'].lower()
-        message = request.POST['message'].lower()
-        form_message = 'Thanks for signing up!'
-        sub_time = datetime.datetime.now()
-        sub_date = datetime.date.today()
-        Incomingmessages.objects.create(email = email, name = name, message = message, sub_time = sub_time, sub_date = sub_date)
-        submit_message = 'Thanks for the message, ' + name.split(' ')[0] + '!'
-        send_mail('Tenemos un mensajito nuevotito', name + '\n' + email +'\n' + message, 'The Arts on the Hudson team',
-                           ['contact@artsonthehudson.com'], fail_silently=True)
-        variables = {'title':title, 'cssclass':cssclass, 'submit_message': submit_message }
-        return render(request,'website/contact.html', variables )  
-    else:
-        return render(request,'website/contact.html', variables)
+    return render(request,'website/contact.html', variables)
 
 def give(request):
     cssclass = 'agive'

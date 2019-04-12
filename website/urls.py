@@ -22,7 +22,6 @@ urlpatterns = [
     path('about/', views.founder, name = 'education'),
     path('mission/', views.mission, name = 'mission'),
     path('promomedia/', views.media, name = 'media'),
-    path('promomedia/<promourl>', views.promo, name = 'promo'),
     path('<events>/', views.events, name = 'events'),
     path('events/<eventurl>', views.eventpage, name = 'event'),
     path('education/<programurl>/', views.program, name = 'program'), 
