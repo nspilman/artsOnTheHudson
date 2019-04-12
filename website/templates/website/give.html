@@ -1,0 +1,65 @@
+{% extends 'website/base.html' %}
+{% block head %}
+
+{% load static %}
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<header class = 'agive my-3'>
+						<div class="row">
+								<div class="col py-5"></div>
+							</div>	
+							<div class = "donateBannerText text-white text-left p-5 col-sm-6 m-2 mx-4" style = "background-color:rgb(0,0,0,.5);border-radius: 1em;">	
+								<h2>
+									How can you help the Arts?
+								</h2>
+								<p class = 'text-white'>
+									For 38 years, Arts on the Hudson has continued to provide low cost arts education, events, and media to all ages in Jersey City.  
+									Thank you for promoting the arts in our community.
+								</p>
+								<a href = 'https://www.crowdrise.com/ArtsontheHudson' target = "_blank">
+									<button class = "button special m-3">donate</button>
+								</a>
+							</div>
+						
+				</header>
+
+				<!-- <section id="four" class="wrapper style2 special">
+					<div class="inner">
+						<header>
+							</header>
+						<ul class="actions">
+							<li><a href = 'https://www.crowdrise.com/ArtsontheHudson' target = "_blank">
+									<img src = "{% static 'website/images/crowdrise.jpg' %}" class = 'img-fluid'></li>
+								</a>
+
+								<li>
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+							<input type="hidden" name="cmd" value="_s-xclick">
+							<input type="hidden" name="hosted_button_id" value="W6UNJSDNF5DPN">
+							<input type ="image" src = "{% static 'website/images/paypal.jpg' %}" target = '_blank' class = 'img-fluid' >
+							<br>
+							<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" target = '_blank' border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+							<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+							</form>
+						</li>
+						</ul>
+						</div>
+				</section> -->
+				
+
+				<section>
+						<div class = 'container'>
+								</div>
+						</section>
+	
+
+{% include "website/footer.html" %}
+{% block foot %} {% endblock %}
+
+		<!-- Scripts -->
+
+    </body>
+    {% endblock %}
+    
+</html>

@@ -1,0 +1,52 @@
+{% extends 'website/base.html' %}
+{% block head %}
+
+{% load static %}
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<header class = 'agive my-3'>
+						<div class="row">
+								<div class="col py-5"></div>
+							</div>		
+					
+					<h2>Donations</h2>
+					<p class = 'text-white'>for more Arts on the Hudson</p>
+				</header>
+
+				<section id="four" class="wrapper style2 special">
+					<div class="inner">
+						<header>
+							<h2>How can you help the Arts?</h2>
+							<p>To continue to provide low cost education, events, and media we need help from our community. Any donation to Arts on the Hudson goes directly into making sure that we can continue to promote and organize art in Jersey City.  Arts on the Hudson/GPT is a 501(c)(3) nonprofit organization and financial contributions are tax-deductible. 
+									Check out our ways to give along with our other sponsors!
+									</p>
+						</header>
+						<ul class="actions">
+							<h1>Show me the money!</h1>
+							<!-- writes out the form tag automatically -->
+							{{ form.render }}
+				</section>
+				
+
+				<section>
+						<div class = 'container'>
+								</div>
+						</section>
+	
+
+{% include "website/footer.html" %}
+{% block foot %} {% endblock %}
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+    </body>
+    {% endblock %}
+    
+</html>

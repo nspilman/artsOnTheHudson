@@ -1,0 +1,53 @@
+{% extends 'website/base.html' %} {% block head %} {% load markdown_deux_tags %} {% load thumbnail %} {% load static %}
+
+<div class="row">
+    <div class="col my-5"></div>
+</div>
+
+<section id="main" class="wrapper">
+    <header>
+    </header>
+    <div class="inner">
+        <div class="row">
+            <div class="col-sm-6">
+                <span class= "py-5">
+                    <img src="{% static 'website/images/karlaAndKids.jpg' %}" class = "img-fluid w-100">
+                </span>
+            </div>
+
+            <div class="col-sm-6">
+
+                <div class='ablogsubmission py-5'>
+                        <h3> Arts on the Hudson seeks to improve the cultural life of Jersey City and the greater metropolitan
+                            community by promoting and organizing local art and arts education by:</h3>
+                        <ul>
+                            <li> providing a platform for a diversity of voices and perspectives to develop new, original,
+                                and experimental arts;
+                            </li>
+                            <li>partnering with various artists and arts organizations within our community to promote awareness
+                                of and accessibility to their work through the creation of promotional media;</li>
+                            <li> supporting and popularizing the arts through high quality programming such as performances,
+                                exhibitions, showcases, festivals, and auctions;</li>
+                            <li> increasing public awareness of the value of art and providing opportunities for it to be
+                                purchased and collected;
+                            </li>
+                            <li> providing affordable art classes in visual, literary, and performing arts for children and
+                                adults;</li>
+                            <li> encouraging gifted students to continue their study of the arts through opportunities both
+                                within and beyond our programs;</li>
+                            <li> connecting artists with paid teaching and art-making positions;</li>
+                            <li> providing all aforementioned activities to members of the public with no special constituency;</li>
+                            <li> attracting, collaborating, and exchanging with leading artists not only from Hudson County
+                                and the greater New York Metro area but also the global community.</li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include "website/footer.html" %} {% block foot %} {% endblock %}
+
+</body>
+{% endblock %}
+
+</html>

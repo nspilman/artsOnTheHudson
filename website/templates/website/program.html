@@ -1,0 +1,28 @@
+{% extends 'website/base.html' %}
+{% block head %}
+{% load markdown_deux_tags %}
+{% load thumbnail %}
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<header class = 'aventpage' style = "background-image:url('{{program.photo.url}}');">
+				</header>
+				<div class = 'container'>
+				<h2 class = 'text-center' style = 'font-shadow: 20px'>{{ program.name}}</h2>
+				<h3 class = 'text-center'>{{program.blurb}}</h3>
+				<div class="inner asection">
+				<div class = 'ablogsubmission'>
+				{{program.body|markdown}}	
+				</div>
+				</div>
+			</div>
+			</section>
+			
+{% include "website/footer.html" %}
+{% block foot %} {% endblock %}
+
+
+    </body>
+    {% endblock %}
+    
+</html>

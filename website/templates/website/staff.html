@@ -1,0 +1,50 @@
+{% extends 'website/base.html' %}
+{% block head %}
+
+		<!-- Three -->
+		<section id="main" class="wrapper">
+			<header class ='astaff my-5'>
+					<div class="row">
+							<div class="col py-4"></div>
+						</div>		
+				
+				<h2>The Staff</h2>
+				<p class = 'text-white'>Who make it happen</p>
+			</header>
+
+			<section id="three" class="wrapper style1">
+				<div class="inner">
+					<div class="spotlights">
+						{% for person in staff %}
+							{% if forloop.counter|divisibleby:2 %}
+						<section>
+							<span class="image"><img src="{{person.photo.url}}" alt="" /></span>
+							<div class="content">
+								<h2>{{person.name}} - {{person.title}}</h2>
+								<p>{{person.bio}}</p>
+							</div>
+						</section>
+						
+						{% else %}
+						<section>
+							<span class="image"><img src="{{person.photo.url}}" alt="" /></span>
+							<div class="content">
+								<h2>{{person.name}} - {{person.title}}</h2>
+								<p>{{person.bio}}</p>
+							</div>
+						</section>
+
+						{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+		{% include "website/footer.html" %}
+		{% block foot %} {% endblock %}
+		<!-- Scripts -->
+
+	</body>
+	{% endblock %}
+</html>

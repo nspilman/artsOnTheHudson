@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+
+{% load static %}
+{% load thumbnail %}
+
+
+<html>
+
+<head>
+	<title>{{ title }}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="{% static 'website/css/bootstrap4.css' %}" />
+	<link rel="stylesheet" href="{% static 'website/css/main.css' %}" />
+	<link rel="stylesheet" href="{% static 'website/css/aoth.css' %}" />
+
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<link rel="shortcut icon" href="{% static 'website/images/logo.png' %}" type="image/x-icon" />
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117975666-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-117975666-1');
+	</script>
+
+
+</head>
+
+<body>
+
+	<!-- Header -->
+
+	<header id="header" class="alt">
+
+		<nav class='navbar navbar-expand-sm navbar-light bg-light align-items-center rounded'>
+			<div class='container'>
+				<div class="row align-items-center">
+					<div class="col align-self-center mt-3">
+						<a href="/{{home}}">
+							<img src="{% static 'website/images/logo_small.png' %}">
+						</a>
+					</div>
+					<div class="col">
+						<a class='navbar-brand' href="/{{home}}">Arts On the Hudson</a>
+					</div>
+
+					</a>
+					<div class="navbar-toggler col" data-toggle='collapse' data-target='#navbarNav'><span class="navbar-toggler-icon"></span></div>
+				</div>
+				<div class='collapse navbar-collapse justify-content-end align-items-end' id='navbarNav'>
+					<ul class='navbar-nav links'>
+						<li class='nav-item dropdown'>
+							<a class='amenu nav-link dropdown-toggle' data-toggle="dropdown" href="" role="button" aria-haspopup="true"
+							 aria-expanded="false">Our Work</a>
+							<div class="dropdown-menu">
+								<a class='amenu dropdown-item' href="/education">Education</a>
+								<a class='amenu dropdown-item' href="/events">Events</a>
+								<a class='amenu dropdown-item' href="/promomedia">Promotional Media</a>
+						</li>
+						</li>
+						<li class='nav-item dropdown'>
+							<a class='amenu nav-link dropdown-toggle' data-toggle="dropdown" href="" role="button" aria-haspopup="true"
+							 aria-expanded="false">Our Story</a>
+							<div class="dropdown-menu">
+								<a class='amenu dropdown-item' href="/staff">The Team</a>
+								<a class='amenu dropdown-item' href="/about">About & History</a>
+								<a class='amenu dropdown-item' href="/press">Press</a>
+								<a class='amenu dropdown-item' href="/mission">Mission Statement</a>
+							</div>
+						</li>
+						<div class="row">
+							<div class="col-sm">
+
+								<!-- <li> <a href ="/blog" class='button fit mt-1'>Blog</a></li> -->
+							</div>
+
+							<div class="col-sm">
+
+								<li><a href="/contact" class="button special fit mt-1">Contact Us</a></li>
+							</div>
+							<div class="col-sm">
+
+								<li><a href="/donate" class="button fit mt-1">Donate</a></li>
+							</div>
+						</div>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+
+
+	</header>
+
+
+	<!-- Collection of nav links and other content for toggling -->
+
+
+
+	</header>
+
+	<!-- Menu -->
+
+	{% block head %}{% endblock %}

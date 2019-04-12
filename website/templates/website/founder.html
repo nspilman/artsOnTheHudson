@@ -1,0 +1,36 @@
+{% extends 'website/base.html' %}
+{% block head %}
+{% load markdown_deux_tags %}
+{% load thumbnail %}
+
+{% load static %}
+
+<div class="row">
+    <div class="col my-5"></div>
+</div>
+
+<section id="main" class="wrapper">
+        <header>
+        </header>
+        <div class="inner">
+            <span class="image left">
+                    <img src="{% static 'website/images/grigur-history.jpg' %}">
+            </span>
+           
+        </div>
+    
+<div class = 'ablogsubmission pt-3'>
+    <div class="container">
+        {{story|safe}}	
+    </div>
+</div>
+
+</div>
+</section>
+    {% include "website/footer.html" %}
+    {% block foot %} {% endblock %}
+    
+        </body>
+        {% endblock %}
+        
+    </html>

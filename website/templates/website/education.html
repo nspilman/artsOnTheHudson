@@ -1,0 +1,50 @@
+{% extends 'website/base.html' %}
+{% block head %}
+{% load thumbnail %}
+{% load static %}
+ 
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<header class = '{{cssclass}} my-3'>
+						<div class="row">
+								<div class="col py-5 py-sm-0"></div>
+							</div>		
+					<h2>Education</h2>
+					<p class = 'text-white'>The cornerstone of every thriving community</p>
+				</header>
+
+				<section id="three" class="wrapper style1">
+					<div class="inner">
+						<div class="spotlights">
+			
+			
+
+
+							{% for program in programs %}
+							<section>
+								<a href = "{{program.url}}">
+									<span><img src="{% thumbnail program.photo 300x300 crop %}" alt="" class="pl-3" /></span>
+								</a>
+								<div class="content">
+									<h2>{{program.name}} </h2> 
+										<p>{{program.blurb}} </p>
+									<br>
+									<a href="{{program.url}}" class="button special small abutton">Read More</a>
+								</div>
+								
+							</section>
+	
+							{% endfor %}
+						</div>
+					</div>
+				</section>
+
+{% include "website/footer.html" %}
+{% block foot %} {% endblock %}
+
+
+    </body>
+    {% endblock %}
+    
+</html>

@@ -1,0 +1,56 @@
+{% extends 'website/base.html' %} {% block head %} {% load thumbnail %} {% load static %}
+
+<!-- Main -->
+<section id="main" class="wrapper">
+    <header class='py-5 my-5 my-sm-3'>
+        <div class="row">
+            <div class="col py-4 py-sm-0"></div>
+        </div>
+    </header>
+    <section id="three" class="wrapper style1">
+        <div class="inner">
+            <div class="spotlights">
+                <div class="py-3 text-center">
+                    <h7 style = 'font-size:40px;'>Press</h7>
+                </div>
+
+                {% for article in press %}
+                <div class="row w-100 aevent-block pl-0">
+                    <div class="col-sm-4">
+                        <div class="aevent-thumbnail-left">
+                            <a href="{{article.link}}" target='_blank'>
+                                <span>
+                                    <div class='aevent-date border'>
+                                        {{ article.date }}
+                                    </div>
+                                    <img src="{% thumbnail article.image 300x198 crop %}" class="athumbnail" alt="" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="content"> -->
+                    <div class="col-sm-8">
+                        <a href="{{article.link}}" target='_blank' style="text-decoration: inherit;">
+                            <h2>{{article.headline}} </h2>
+                            <p class='aevent-p'> {{article.publication}} -- {{article.pub_date}}
+                                <br>
+                                <p class='aevent-p'>{{article.blurb}}</p>
+                                <br>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    {% include "website/footer.html" %} {% block foot %} {% endblock %}
+
+    </body>
+    {% endblock %}
+
+    </html>

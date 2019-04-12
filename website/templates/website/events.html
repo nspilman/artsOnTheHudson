@@ -1,0 +1,110 @@
+{% extends 'website/base.html' %} {% block head %} {% load thumbnail %} {% load static %}
+
+<!-- Main -->
+<section id="main" class="wrapper">
+    <header class='{{cssclass}} my-5 my-sm-3'>
+        <div class="row">
+            <div class="col py-4 py-sm-0"></div>
+        </div>
+        <h2>Events</h2>
+        <p class='text-white'>What's going on in the neighborhood?</p>
+    </header>
+
+    <section id="three" class="wrapper style1">
+        <div class="inner">
+            <div class="spotlights">
+
+                <h2>Upcoming Events</h2>
+                {% if not upcoming %}
+                <div class = "px-5 py-2 container">
+                    <h3>Events to be announced!</h3> 
+                    <h1>Check out our past events in the meantime</h1>
+                </div>
+                {% endif %}
+                {% for event in upcoming %}
+                <div class="row w-100 aevent-block pl-0">
+                      
+                    <div class="col-sm-4">
+                        <div class="aevent-thumbnail-left">
+                              <a href="/events/{{event.url}}">  
+                           
+                            <span>
+                                    <div class = 'aevent-date border'>
+                                            {{ event.date }}
+                                        </div>
+                                <img src="{% thumbnail event.photo 300x198 crop %}" class="athumbnail" alt="" />
+                            </span>
+                             </a>
+                        </div>
+                    </div>
+                   
+                    <!-- <div class="content"> -->
+                    <div class="col-sm-5">
+                        <h2>{{event.name}} </h2>
+                        <p class='aevent-p'> {{event.location}} -- {{event.date}}
+                            <br>{{event.time}}</p>
+
+                        ---------------------------------
+                        <br>
+                        <p class='aevent-p'>{{event.blurb}}</p>
+                        <br>
+                    </div>
+                
+                    <div class="col-sm-3">
+                        {% if event.ticket_url %}
+                        <a href="https://www.eventcombo.com/e/{{event.ticket_url}}" target="_blank" class="button special small abutton aticket">BUY TICKETS</a>
+                        {% endif %}
+
+                        <br> {% if event.fb_url %}
+                        <a href="https://www.facebook.com/events/{{event.fb_url}}" target="_blank" class="button special small abutton">RSVP on Facebook</a>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+            {% endfor %}
+
+                <h2>Past Events</h2>
+{% for event in past %}
+                    <div class="row w-100 aevent-block">
+                        <div class="col-sm-4">
+                            <div class="aevent-thumbnail-left">
+                                <span>
+                                    <img src="{% thumbnail event.photo 300x198 crop %}" class="athumbnail" alt="" />
+                                </span>
+                            </div>
+                        </div>
+                        <!-- <div class="content"> -->
+                        <div class="col-sm-5">
+                            <h2>{{event.name}} </h2>
+                            <p class='aevent-p'> {{event.location}} -- {{event.date}}
+                                <br>{{event.time}}</p>
+
+                            ---------------------------------
+                            <br>
+                            <p class='aevent-p'>{{event.blurb}}</p>
+                            <br>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/events/{{event.url}}" class="button special small abutton">Read More</a>
+
+                            <br> {% if event.fb_url %}
+                            <a href="https://www.facebook.com/events/{{event.fb_url}}" target="_blank" class="button special small abutton">RSVP</a>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    <!-- </div> -->
+
+                {% endfor %} 
+            </div>
+        </div>
+    </section>
+
+
+    {% include "website/footer.html" %} {% block foot %} {% endblock %}
+
+    </body>
+    {% endblock %}
+
+    </html>

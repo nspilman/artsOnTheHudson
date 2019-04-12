@@ -1,0 +1,73 @@
+{% extends 'website/base.html' %}
+{% block head %}
+{% load markdown_deux_tags %}
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<header class = 'aventpage' style = "background-image:url('{{event.photo.url}}');">
+				
+				</header>
+				<div class = 'container'>
+					<div class = 'aeventinfo'>
+						<h2 class = "aeventh2 text-center">{{event.name}}</h2>
+						<p class = 'aevent-p text-center'>{{event.blurb}}</p>
+						<br>
+						<p class = 'aevent-p text-center'><b>Location: </b> {{event.location}}</p>
+						<p class = 'aevent-p text-center'><b> Date: </b>{{event.date}}</p>
+						<p class = 'aevent-p text-center'><b>Time: </b> {{event.time}}</p>
+					</div>
+					<div class = row>
+						<div class = 'col-sm ablogsubmission'>
+						{{event.body|markdown}}	
+						</div>
+						{% if event_signup %}
+						
+					<div class="col-sm">
+						<div id = 'signup' class = 'pt-5'>
+							<h2> Sign up below!</h2>
+							<form method="POST" enctype = 'multipart/form-data' >
+							{% csrf_token %}
+								<div class="row uniform">
+									<div class="6u 12u$(xsmall)">
+										<label for="demo-name">First Name</label>
+										<input type="text" name="firstname" id="firstname" value="" required />
+									</div>
+									<div class="6u$ 12u$(xsmall)">
+										<label for="demo-email">Last Name</label>
+										<input type="text" name="lastname" id="lastname" value="" required />
+									</div>
+									<div class="12u$">
+										<label for="message">Email</label>
+										<input type = "email" name="email" id="email" rows="6" required></textarea>
+									</div>
+									{% if event_signup|length > 1 %}
+									<div class="12u$">
+	
+											<label for="session">Signup Levels</label>
+										<select name="session">
+												<option value="all">all</option>
+											{% for signup in event_signup %}
+											<option value="{{session.name}}">{{signup.name}} - ${{signup.price}}</option>
+											{% endfor %}
+										</select> 
+									</div>
+									{% endif %}
+									<div class="12u$">
+										<ul class="actions">
+											<li><input type="submit" value="Sign up!" class="special" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+			</div>
+		
+		
+{% include "website/footer.html" %}
+{% block foot %} {% endblock %}
+
+    </body>
+    {% endblock %}
+    
+</html>

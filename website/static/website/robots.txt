@@ -1,0 +1,4 @@
+User-agent: *
+disallow: /payment/
+
+Sitemap: https://www.artsonthehudson.com/sitemap.xml

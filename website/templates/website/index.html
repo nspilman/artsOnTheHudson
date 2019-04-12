@@ -1,0 +1,122 @@
+{% extends 'website/base.html' %}
+{% block head %}
+{% load markdown_deux_tags %}
+
+{% load static %}
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner" style = "background-color:rgb(0,0,0,.5); padding:2em; border-radius:1em;">
+					<div class="content">
+						<h2>Arts on the Hudson</h2>
+						<p class = 'text-white'>Arts Nonprofit - Jersey City</p>
+					</div>
+					<ul class="actions vertical">
+							<form action= "" method="POST" enctype = 'multipart/form-data' >
+								{% csrf_token %}
+									<div>
+										Join Our Mailing List 
+										<input type="email" name="_replyto" id="email" value="" />
+										{{form_message}}
+										<br>
+											<input type="submit" value="Sign up" class="special" />
+								
+							</form>
+							</ul>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper awrapper style1 split">
+				<div class="inner">
+					<div class="content">
+						<h2>Bringing the Arts to Hudson County
+							<br>
+							For 38 Years 
+						</h2>
+						<p>Arts on the Hudson works with the community to enrich the cultural life of Jersey City, NJ. 
+							<br>
+							<br>
+							We have assembled a team of local residents and artists to produce events, classes, and multimedia content to help promote artists and arts organizations. 
+							<br>
+							<br>
+							We provide platforms for a range of voices and perspectives as to reflect Jersey City's diverse and culterally rich community. </p>
+						<ul class="actions">
+							<li><a href="staff" class="button">Our Team</a></li>
+						</ul>
+					</div>
+					<div class="image-circles">
+						<div class="images">
+							<span class="image"><img src="{% static 'website/images/mickey_square.jpg' %}" alt="" /></span>
+							<span class="image"><img src="{% static 'website/images/oddities_bust_square.jpg' %}" alt="" /></span>
+						</div>
+						<div class="images">
+							<span class="image"><img src="{% static 'website/images/piano_square.jpg' %}" alt="" /></span>
+							<span class="image"><img src="{% static 'website/images/backturned_square.jpg' %}" alt="" /></span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2 apaddingtop">
+				<div class="inner">
+					<header class="major">
+						<h2>How We Do It</h2>
+						<p>Arts on the Hudson promotes the arts in our community through three main avenues - Early Childhood Arts Education, Events and Promotional Media.</p>
+					</header>
+					<div class = 'row'>
+						<div class="col-sm howwedoit-border-blue pt-3">							
+							<a href = 'education'>
+								<span class="icon major fa-graduation-cap"></span>
+							</a>
+							<h3 class = 'text-center'>Education</h3>
+							<p>Arts on the Hudson provides arts education to the youth of Jersey City through partnership with the Headstart Program, provide early childhood arts education at no cost. </p>
+						</div>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						
+						<div class="col-sm howwedoit-border-orange pt-3">
+							<a href = 'events'>
+								<span class="icon major fa-calendar"></span>
+							</a>
+							<h3 class = 'text-center'>Events</h3>
+							<p>From concerts to festivals, Arts on the Hudson brings the community together through events around town. Connect with local artists - we promise a good time.</p>
+						</div>					
+							<div class="col-sm howwedoit-border-blue pt-3">
+								<a href = "promomedia">
+									<span class="icon major fa-camera-retro"></span>
+								</a>
+								<h3 class = 'text-center'>Promotional Media</h3>
+								<p>We provide platforms for a range of voices and perspectives as to reflect the diverse community that is Jersey City with low cost promotional media to help connect and promote the work of local artists and art organizations.</p>
+							</div>
+					</div>
+					</div>
+					<footer class="major">
+						</footer>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="four" class="wrapper style2 special">
+				<div class="inner">
+					<header>
+						<h2>Join the Cause</h2>
+						<p> We strive to be a platform on which art in Hudson County flourishes. Would you please help us on our mission? 
+								<br>Send us a donation and check out our sponsors. </p>
+					</header>
+					<ul class="actions">
+						<li><a href="/donate" class="button special major">Donate</a></li>
+					</ul>
+				</div>
+			</section>
+			{% include "website/footer.html" %}
+			{% block foot %} {% endblock %}
+		<!-- Scripts -->
+		
+			{% endblock %}
+	</body>
+</html>

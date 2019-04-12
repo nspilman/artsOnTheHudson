@@ -1,0 +1,39 @@
+{% extends 'website/base.html' %}
+{% block head %}
+{% load markdown_deux_tags %}
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<header class = 'aventpage' style = "background-image:url('{{promo.photo.url}}');">
+	
+				</header>
+				<div class="container">
+				<div class = 'row'>
+				<div class="inner">
+					<span class="image left">
+						<img src="{{promo.thumbnail.url}}" class = 'acontentthumbnail' alt="" /></span>
+						<h2 class = 'text-center'>{{promo.name}}</h2>
+						<p class = 'aevent-p text-center'>{{promo.blurb}}</p>
+		
+						<div class = 'ablogsubmission'>
+					{{promo.body|markdown|safe}} 
+				</div>	
+				</div>
+				</div>
+						   <div class="row">
+											  <iframe class ='acontentvids' src="https://www.youtube.com/embed/{{promo.medialink}}" 
+											  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
+									  </div>
+								  </div>
+							  </div>
+						  </div>
+					</div>
+				</section>
+
+{% include "website/footer.html" %}
+{% block foot %} {% endblock %}
+
+    </body>
+    {% endblock %}
+    
+</html>
