@@ -56,7 +56,7 @@ def press(request):
 def events(request, events):
     upcoming = Events.objects.order_by('date').filter(date__gte=datetime.date.today())
     cssclass = 'aevents'
-    past = Events.objects.filter(date__lt=datetime.date.today())
+    past = Events.objects.order_by('-date').filter(date__lt=datetime.date.today())
     if events in ['events','pastevents']:
         if events == 'events':
             title = 'Events | Jersey City | Arts on the Hudson'
