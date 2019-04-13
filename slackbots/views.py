@@ -38,7 +38,9 @@ class Events(APIView):
             # user_profile = Profile.objects.get(slack_id = user_id)
             # user = user_profile.user
                 
-            Client.api_call("chat.postMessage","#nateplayground","Heyyyyy")  
+            Client.api_call("chat.postEphemeral",
+                    channel="#nateplayground",
+                    text="Hello from Python! :tada:") 
                                                       #
             return Response(status=status.HTTP_200_OK)        #9
 
