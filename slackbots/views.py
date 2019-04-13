@@ -20,8 +20,8 @@ today = datetime.date.today()
 class Events(APIView):
     def post(self, request, *args, **kwargs):
 
-        slack_message = request.data
-        if Client.rtm_connect(with_team_state=False):
+            slack_message = request.data
+        # if Client.rtm_connect(with_team_state=False):
         
             # verification challenge
             if slack_message.get('type') == 'url_verification':
