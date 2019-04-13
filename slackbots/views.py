@@ -26,7 +26,7 @@ class Events(APIView):
             if slack_message.get('type') == 'url_verification':
                 return Response(data=slack_message,
                                 status=status.HTTP_200_OK)
-            message = slack_message['message']
+            message = slack_message['event']
                 # ignore bot's own message
             if message['subtype'] == 'bot_message':     #5
                 return Response(status=status.HTTP_200_OK)        #
