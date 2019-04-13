@@ -19,27 +19,27 @@ today = datetime.date.today()
 
 class Events(APIView):
     def post(self, request, *args, **kwargs):
-            slack_message = request.data
+            # slack_message = request.data
         # if Client.rtm_connect(with_team_state=False):
         
             # verification challenge
-            if slack_message.get('type') == 'url_verification':
-                return Response(data=slack_message,
-                                status=status.HTTP_200_OK)
-            message = slack_message['event']
+            # if slack_message.get('type') == 'url_verification':
+                # return Response(data=slack_message,
+                                # status=status.HTTP_200_OK)
+            # message = slack_message['event']
                 # ignore bot's own message
             # if message['subtype'] == 'bot_message':     #5
             #     return Response(status=status.HTTP_200_OK)        #
                 
                 # process user's message                      #6
-            text = message['text']                   #
-            channel = message['channel']
-            user_id = message['user']   
-            user_profile = Profile.objects.get(slack_id = user_id)
-            user = user_profile.user
+            # text = message['text']                   #
+            # channel = message['channel']
+            # user_id = message['user']   
+            # user_profile = Profile.objects.get(slack_id = user_id)
+            # user = user_profile.user
                 
             Client.api_call(method='chat.postMessage',        #8
-                                    channel=channel,                  #
+                                    channel="#nateplayground",                  #
                                     text="Heyyyyy")  
                                                       #
             return Response(status=status.HTTP_200_OK)        #9
