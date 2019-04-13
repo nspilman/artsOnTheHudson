@@ -44,7 +44,7 @@ class Events(APIView):
                 
                 Client.api_call(method='chat.postMessage',        #8
                                     channel=channel,                  #
-                                    text=bot_text)                    #
+                                    text=text)                    #
                 return Response(status=status.HTTP_200_OK)        #9
 
 
