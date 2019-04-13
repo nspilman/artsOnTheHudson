@@ -38,9 +38,9 @@ class Events(APIView):
             # user_profile = Profile.objects.get(slack_id = user_id)
             # user = user_profile.user
                 
-            Client.api_call(method='chat.postMessage',        #8
-                                    channel="#nateplayground",                  #
-                                    text="Heyyyyy")  
+            Client.api_call("chat.postMessage",        #8
+                                    "#nateplayground",                  #
+                                    "Heyyyyy")  
                                                       #
             return Response(status=status.HTTP_200_OK)        #9
 
