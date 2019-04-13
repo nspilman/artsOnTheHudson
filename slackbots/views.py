@@ -19,7 +19,6 @@ today = datetime.date.today()
 
 class Events(APIView):
     def post(self, request, *args, **kwargs):
-
             slack_message = request.data
         # if Client.rtm_connect(with_team_state=False):
         
@@ -27,45 +26,43 @@ class Events(APIView):
             if slack_message.get('type') == 'url_verification':
                 return Response(data=slack_message,
                                 status=status.HTTP_200_OK)
-            # greet bot
-            if 'event' in slack_message:                              #4
-                event_message = slack_message.get('event')            #
-                
+            message = slack_message['message']
                 # ignore bot's own message
-                if event_message.get('subtype') == 'bot_message':     #5
-                    return Response(status=status.HTTP_200_OK)        #
+            if message['subtype'] == 'bot_message':     #5
+                return Response(status=status.HTTP_200_OK)        #
                 
                 # process user's message                      #6
-                text = event_message.get('text')                      #
-                channel = event_message.get('channel')
-                user_id = event_message.get('user')   
-                user_profile = Profile.objects.get(slack_id = user_id)
-                user = user_profile.user
+            text = message['text']                   #
+            channel = message['channel']
+            user_id = message['user']   
+            user_profile = Profile.objects.get(slack_id = user_id)
+            user = user_profile.user
                 
-                Client.api_call(method='chat.postMessage',        #8
+            Client.api_call(method='chat.postMessage',        #8
                                     channel=channel,                  #
-                                    text="Heyyyyy")                    #
-                return Response(status=status.HTTP_200_OK)        #9
+                                    text="Heyyyyy")  
+                                                      #
+            return Response(status=status.HTTP_200_OK)        #9
 
 
-                time_obj =  TimeParse(text)
+                # time_obj =  TimeParse(text)
 
-                timelog = Timelog()
-                timelog.person = user
-                timelog.logdate = today
-                timelog.minutes = time_obj.minutes
-                timelog.description = time_obj.description
-                timelog.work_day = time_obj.day
+                # timelog = Timelog()
+                # timelog.person = user
+                # timelog.logdate = today
+                # timelog.minutes = time_obj.minutes
+                # timelog.description = time_obj.description
+                # timelog.work_day = time_obj.day
 
-                timelog.save()
+                # timelog.save()
                              #
-                bot_text = 'Thanks, {}. You logged {} to "{}" on {}.'.format(user.username, timelog.minutes, timelog.description, timelog.work_day)             #                              #7
-                Client.api_call(method='chat.postMessage',        #8
-                                    channel=channel,                  #
-                                    text=bot_text)                    #
-                return Response(status=status.HTTP_200_OK)        #9
+                # bot_text = 'Thanks, {}. You logged {} to "{}" on {}.'.format(user.username, timelog.minutes, timelog.description, timelog.work_day)             #                              #7
+                # Client.api_call(method='chat.postMessage',        #8
+                                    # channel=channel,                  #
+                                    # text=bot_text)                    #
+                # return Response(status=status.HTTP_200_OK)        #9
 
-            return Response(status=status.HTTP_200_OK)
+            # return Response(status=status.HTTP_200_OK)
 
 def test(request):
     user_id = 'U97G8HY69'
