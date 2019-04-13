@@ -9,6 +9,7 @@ class TimeParse():
         self.message_list = message.split('~')
         self.first_space = message.find(' ')
         self.description = ''
+        self.minutes = ""
         
         #check to see if the first item in the list is an int
         try:

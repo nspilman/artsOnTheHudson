@@ -19,16 +19,17 @@ today = datetime.date.today()
 
 class Events(APIView):
     def post(self, request, *args, **kwargs):
+
         slack_message = request.data
-        # if Client.rtm_connect(with_team_state=False):
-        # return Response({"Did you find me?":"yes"})
+        if Client.rtm_connect(with_team_state=False):
+        
             # verification challenge
-        if slack_message.get('type') == 'url_verification':
-            return Response(data=slack_message,
+            if slack_message.get('type') == 'url_verification':
+                return Response(data=slack_message,
                                 status=status.HTTP_200_OK)
             # greet bot
-        if 'event' in slack_message:                              #4
-                event_message = slack_message['event']            #
+            if 'event' in slack_message:                              #4
+                event_message = slack_message.get('event')            #
                 
                 # ignore bot's own message
                 if event_message.get('subtype') == 'bot_message':     #5
@@ -41,6 +42,12 @@ class Events(APIView):
                 user_profile = Profile.objects.get(slack_id = user_id)
                 user = user_profile.user
                 
+                Client.api_call(method='chat.postMessage',        #8
+                                    channel=channel,                  #
+                                    text=bot_text)                    #
+                return Response(status=status.HTTP_200_OK)        #9
+
+
                 time_obj =  TimeParse(text)
 
                 timelog = Timelog()
@@ -57,8 +64,9 @@ class Events(APIView):
                                     channel=channel,                  #
                                     text=bot_text)                    #
                 return Response(status=status.HTTP_200_OK)        #9
-        return Response(status=status.HTTP_200_OK)
-      
+
+            return Response(status=status.HTTP_200_OK)
+
 def test(request):
     user_id = 'U97G8HY69'
     user_profile = Profile.objects.get(slack_id = user_id)
