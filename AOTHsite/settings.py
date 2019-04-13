@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-from .local_settings import *
 import datetime
 from datetime import timedelta
 
@@ -44,9 +43,9 @@ INSTALLED_APPS = [
     'dashboard',
     'people',
     'slackbots',
-    'timelog',
     'blog',
     'content',
+    'timelog',
     # 'project',
 ]
 
@@ -206,3 +205,4 @@ MARKDOWN_DEUX_STYLES = { 'default': {
 # ----------------------------------------------
 # use your keys 
 
+from .local_settings import *
