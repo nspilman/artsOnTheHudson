@@ -18,8 +18,10 @@ class Events(APIView):
     def post(self, request, *args, **kwargs):
         Client = SlackClient(SLACK_BOT_USER_TOKEN)   
         Client.rtm_connect()
-    # slack_message = request.data
-        # if Client.rtm_connect(with_team_state=False):
+        if Client.rtm_connect(with_team_state=False):
+            response = 'Connected'
+        else:
+            response = "not connected"
         
             # verification challenge
             # if slack_message.get('type') == 'url_verification':
@@ -41,7 +43,7 @@ class Events(APIView):
                     channel="CHZ30QX8X",
                     text="Hello from Python! :tada:") 
                                                       #
-        return Response({'RESPONSE':'DID IT WORK?'})        #9
+        return Response({'RESPONSE':response})        #9
 
 
                 # time_obj =  TimeParse(text)
