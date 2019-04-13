@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.conf import settings
+from django.conf import settings, local_settings
 from slackclient import SlackClient                               #1
 from rtmbot.core import Plugin
 from django.contrib.auth.models import User
@@ -10,8 +10,8 @@ from .timeparse import TimeParse
 from timelog.models import Timelog
 import datetime
 
-SLACK_VERIFICATION_TOKEN = getattr(settings, 'SLACK_VERIFICATION_TOKEN', None)
-SLACK_BOT_USER_TOKEN = getattr(settings,                          #2
+SLACK_VERIFICATION_TOKEN = getattr(local_settings, 'SLACK_VERIFICATION_TOKEN', None)
+SLACK_BOT_USER_TOKEN = getattr(local_settings,                          #2
 'SLACK_BOT_USER_TOKEN', None)                                     #
 Client = SlackClient(SLACK_BOT_USER_TOKEN)                        #3
 
