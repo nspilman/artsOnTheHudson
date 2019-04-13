@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
+from AOTHsite.local_settings import SLACK_VERIFICATION_TOKEN, SLACK_BOT_USER_TOKEN
 from slackclient import SlackClient                               #1
 from rtmbot.core import Plugin
 from django.contrib.auth.models import User
@@ -9,17 +10,15 @@ from people.models import Profile
 from .timeparse import TimeParse
 from timelog.models import Timelog
 import datetime
-
-SLACK_VERIFICATION_TOKEN = getattr(settings, 'SLACK_VERIFICATION_TOKEN', None)
-SLACK_BOT_USER_TOKEN = getattr(settings,                          #2
-'SLACK_BOT_USER_TOKEN', None)                                     #
-Client = SlackClient(SLACK_BOT_USER_TOKEN)                        #3
-
+                    
+              #                     #3
 today = datetime.date.today()
 
 class Events(APIView):
     def post(self, request, *args, **kwargs):
-            # slack_message = request.data
+        Client = SlackClient(SLACK_BOT_USER_TOKEN)   
+        Client.rtm_connect()
+    # slack_message = request.data
         # if Client.rtm_connect(with_team_state=False):
         
             # verification challenge
@@ -38,11 +37,11 @@ class Events(APIView):
             # user_profile = Profile.objects.get(slack_id = user_id)
             # user = user_profile.user
                 
-            Client.api_call("chat.postEphemeral",
+        Client.api_call("chat.postEphemeral",
                     channel="CHZ30QX8X",
                     text="Hello from Python! :tada:") 
                                                       #
-            return Response(status=status.HTTP_200_OK)        #9
+        return Response({'RESPONSE':'DID IT WORK?'})        #9
 
 
                 # time_obj =  TimeParse(text)
