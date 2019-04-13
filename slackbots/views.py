@@ -39,7 +39,7 @@ class Events(APIView):
             # user = user_profile.user
                 
             Client.api_call("chat.postEphemeral",
-                    channel="#nateplayground",
+                    channel="CHZ30QX8X",
                     text="Hello from Python! :tada:") 
                                                       #
             return Response(status=status.HTTP_200_OK)        #9
