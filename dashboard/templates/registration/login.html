@@ -1,0 +1,27 @@
+{% extends 'website/base.html' %}
+{% block head %}
+
+{% load static %}
+
+<h2>Login</h2>
+<form method="post">
+    <div class = "row py-5 mt-5">
+    <div class = "container col-sm-6">
+        
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</div>
+</div>
+</form>
+{% endblock %}
+	
+
+{% include "website/footer.html" %}
+{% block foot %} {% endblock %}
+
+		<!-- Scripts -->
+
+    </body>
+    
+</html>
