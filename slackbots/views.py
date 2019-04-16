@@ -20,7 +20,7 @@ today = datetime.date.today()
 class Events(APIView):
     def post(self, request, *args, **kwargs):
         slack_message = request.data
-        message = slack_message['event']
+        # message = slack_message['event']
                 # ignore bot's own message
             # if message['subtype'] == 'bot_message':     #5
             #     return Response(status=status.HTTP_200_OK)        #
