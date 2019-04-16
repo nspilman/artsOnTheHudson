@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
-from AOTHsite.local_settings import SLACK_VERIFICATION_TOKEN, SLACK_BOT_USER_TOKEN
+from AOTHsite.local_settings import SLACK_VERIFICATION_TOKEN
 from slackclient import SlackClient                               #1
 from rtmbot.core import Plugin
 from django.contrib.auth.models import User
@@ -11,6 +11,7 @@ from .timeparse import TimeParse
 from timelog.models import Timelog
 import datetime
 
+SLACK_VERIFICATION_TOKEN = SLACK_VERIFICATION_TOKEN
 SLACK_BOT_USER_TOKEN = getattr(settings,                          #2
 'SLACK_BOT_USER_TOKEN', None)                                     #
 Client = SlackClient(SLACK_BOT_USER_TOKEN)                        #3
@@ -19,12 +20,14 @@ today = datetime.date.today()
 
 class Events(APIView):
     def post(self, request, *args, **kwargs):
-        Client.api_call("chat.postEphemeral",
-                    channel="CHZ30QX8X",
-                    text="Hello from Python! :tada:") 
-        return Response(status=status.HTTP_200_OK)        
-        # slack_message = request.data
-        # message = slack_message['event']
+            # slack_message = request.data
+        # if Client.rtm_connect(with_team_state=False):
+        
+            # verification challenge
+            # if slack_message.get('type') == 'url_verification':
+                # return Response(data=slack_message,
+                                # status=status.HTTP_200_OK)
+            # message = slack_message['event']
                 # ignore bot's own message
             # if message['subtype'] == 'bot_message':     #5
             #     return Response(status=status.HTTP_200_OK)        #
@@ -35,7 +38,12 @@ class Events(APIView):
             # user_id = message['user']   
             # user_profile = Profile.objects.get(slack_id = user_id)
             # user = user_profile.user
-                                                      #    #9
+                
+            Client.api_call("chat.postEphemeral",
+                    channel="CHZ30QX8X",
+                    text="Hello from Python! :tada:") 
+                                                      #
+            return Response(status=status.HTTP_200_OK)        #9
 
 
                 # time_obj =  TimeParse(text)
