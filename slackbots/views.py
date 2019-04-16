@@ -25,11 +25,11 @@ class Events(APIView):
                 return Response(data=slack_message,
                                 status=status.HTTP_200_OK)
             message = slack_message['event']
-                ignore bot's own message
+                # ignore bot's own message
             if message['subtype'] == 'bot_message':     #5
                 return Response(status=status.HTTP_200_OK)        #
                 
-                process user's message                      #6
+                # process user's message                      #6
             text = message['text']                   #
             channel = message['channel']
             user_id = message['user']   
