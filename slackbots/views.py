@@ -10,40 +10,37 @@ from people.models import Profile
 from .timeparse import TimeParse
 from timelog.models import Timelog
 import datetime
-                    
-              #                     #3
+
+SLACK_BOT_USER_TOKEN = getattr(settings,                          #2
+'SLACK_BOT_USER_TOKEN', None)                                     #
+Client = SlackClient(SLACK_BOT_USER_TOKEN)                        #3
+
 today = datetime.date.today()
 
 class Events(APIView):
     def post(self, request, *args, **kwargs):
-        Client = SlackClient(SLACK_BOT_USER_TOKEN)   
-        Client.rtm_connect()
-        if Client.rtm_connect(with_team_state=False):
-            response = 'Connected'
-        else:
-            response = "not connected"
-        
-            # verification challenge
-            # if slack_message.get('type') == 'url_verification':
-                # return Response(data=slack_message,
-                                # status=status.HTTP_200_OK)
-            # message = slack_message['event']
-                # ignore bot's own message
-            # if message['subtype'] == 'bot_message':     #5
-            #     return Response(status=status.HTTP_200_OK)        #
+        slack_message = request.data
+        if Client.rtm_connect(with_team_state=False):  
+            if slack_message.get('type') == 'url_verification':
+                return Response(data=slack_message,
+                                status=status.HTTP_200_OK)
+            message = slack_message['event']
+                ignore bot's own message
+            if message['subtype'] == 'bot_message':     #5
+                return Response(status=status.HTTP_200_OK)        #
                 
-                # process user's message                      #6
-            # text = message['text']                   #
-            # channel = message['channel']
-            # user_id = message['user']   
-            # user_profile = Profile.objects.get(slack_id = user_id)
-            # user = user_profile.user
+                process user's message                      #6
+            text = message['text']                   #
+            channel = message['channel']
+            user_id = message['user']   
+            user_profile = Profile.objects.get(slack_id = user_id)
+            user = user_profile.user
                 
-        Client.api_call("chat.postMessage",
+            Client.api_call("chat.postEphemeral",
                     channel="CHZ30QX8X",
                     text="Hello from Python! :tada:") 
                                                       #
-        return Response({'RESPONSE':response})        #9
+            return Response(status=status.HTTP_200_OK)        #9
 
 
                 # time_obj =  TimeParse(text)

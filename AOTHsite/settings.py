@@ -63,10 +63,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'AOTHsite.urls'
 
-EMAIL_HOST = 'smtp.gmail.com'  # since you are using a gmail account
-EMAIL_PORT = 587  # Gmail SMTP port for TLS
-EMAIL_USE_TLS = True
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -166,13 +162,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'EST'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
