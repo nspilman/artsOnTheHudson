@@ -30,11 +30,11 @@ class Events(APIView):
                 return Response(status=status.HTTP_200_OK)        #
                 
                 # process user's message                      #6
-            text = message['text']                   #
-            channel = message['channel']
-            user_id = message['user']   
-            user_profile = Profile.objects.get(slack_id = user_id)
-            user = user_profile.user
+            # text = message['text']                   #
+            # channel = message['channel']
+            # user_id = message['user']   
+            # user_profile = Profile.objects.get(slack_id = user_id)
+            # user = user_profile.user
                 
             Client.api_call("chat.postEphemeral",
                     channel="CHZ30QX8X",
