@@ -19,7 +19,11 @@ today = datetime.date.today()
 
 class Events(APIView):
     def post(self, request, *args, **kwargs):
-        slack_message = request.data
+        Client.api_call("chat.postEphemeral",
+                    channel="CHZ30QX8X",
+                    text="Hello from Python! :tada:") 
+        return Response(status=status.HTTP_200_OK)        
+        # slack_message = request.data
         # message = slack_message['event']
                 # ignore bot's own message
             # if message['subtype'] == 'bot_message':     #5
@@ -31,12 +35,7 @@ class Events(APIView):
             # user_id = message['user']   
             # user_profile = Profile.objects.get(slack_id = user_id)
             # user = user_profile.user
-                
-        Client.api_call("chat.postEphemeral",
-                    channel="CHZ30QX8X",
-                    text="Hello from Python! :tada:") 
-                                                      #
-        return Response(status=status.HTTP_200_OK)        #9
+                                                      #    #9
 
 
                 # time_obj =  TimeParse(text)
