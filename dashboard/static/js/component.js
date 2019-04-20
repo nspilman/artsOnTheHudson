@@ -4,7 +4,7 @@ const dashboardcomponent =  {
             <h2> 
              {{model.name}}
             </h2>
-            <pastItems :pastItems="pastRecords"/>
+            <pastItems :pastItems="pastRecords" :model = "model.name"/>
         </div>`,
     data(){
         return{

@@ -7,15 +7,15 @@ var app = new Vue({
       test:"I'm here!",
       models :[
          {
-            name:"Events",
+            name:"events",
             endpoint:"/api/events/"
          },
          {
-            name:"Education",
+            name:"education",
             endpoint:"/api/education/"
          },
          {
-            name:"Media",
+            name:"media",
             endpoint:"/api/media/"
          },
          {

@@ -23,7 +23,7 @@ class website_object(APIView):
         else:
             output = db_object.objects.all()
             
-            output = [json.dumps(model_to_dict(object,fields=['name','blurb','date']), cls=DjangoJSONEncoder)for object in output]
+            output = [json.dumps(model_to_dict(object,fields=['name','blurb','date','url']), cls=DjangoJSONEncoder)for object in output]
             # for item in output:
             #     output['date'] = str(output['date'])
         return Response(output)
