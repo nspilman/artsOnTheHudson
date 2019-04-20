@@ -10,5 +10,5 @@ from timelog import views as timeviews
 
 urlpatterns = [
     path('', views.dashboard, name = 'dashboard' ),
-    path('time/',timeviews.reporting_home, name = 'timereport')
+    path('time/',timeviews.reporting_home, name = 'timereport'),
 ]

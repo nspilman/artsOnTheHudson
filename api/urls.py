@@ -9,6 +9,6 @@ from website.models import Education, Events, Media
 from . import views
 
 urlpatterns = [
-    path('<app>/', views.Object.as_view(), name = 'app'), 
-    path('<app>/<id>', views.Object.as_view(), name = 'app'), 
+    path('<app>/', views.website_object.as_view(), name = 'app'), 
+    path('<app>/<id>', views.website_object.as_view(), name = 'app'), 
     ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

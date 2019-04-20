@@ -2,28 +2,20 @@
 {% block head %}
 
 {% load static %}
-
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 		<!-- Main -->
 			<section id="main" class="wrapper">
-				<header class = 'agive my-3'>
-						<div class="row">
-								<div class="col py-5"></div>
-							</div>	
-							<div class = "donateBannerText text-white text-left p-5 col-sm-6 m-2 mx-4" style = "background-color:rgb(0,0,0,.5);border-radius: 1em;">	
-								<h2>
-                                    {{request.user.first_name }} {{ request.user.last_name }}
-								</h2>
-								<p class = 'text-white'>
-									For 38 years, Arts on the Hudson has continued to provide low cost arts education, events, and media to all ages in Jersey City.  
-									Thank you for promoting the arts in our community.
-								</p>
-								<a href = 'https://www.crowdrise.com/ArtsontheHudson' target = "_blank">
-									<button class = "button special m-3">donate</button>
-								</a>
-							</div>
-						
-				</header>
-	
+                    <div id="app" style="display: flex; align-items: center;justify-content: center; width:100vw; margin-top:7em; flex-direction: column">
+                      <div class = "w-75 p-2 bg-primary m-3 px-3" style="border-radius:1em; display:flex; align-items: center;">
+                       <h2 class = "text-white"> What's up, {{request.user}} </h2>
+                      </div>
+                      <div class = "dashboardCompWrapper" style="width: 80vw; display:flex; flex-wrap:wrap;">
+                        <dashboardcomponent :model="model" v-for="model in models" style="width:40vw;"/>
+                      </div>
+                    </div>
+
+
 
 {% include "website/footer.html" %}
 {% block foot %} {% endblock %}
@@ -31,6 +23,12 @@
 		<!-- Scripts -->
 
     </body>
+    
+    <script src="../../static/js/record.js"></script>
+    <script src="../../static/js/pastItems.js"></script>
+    <script src="../../static/js/component.js"></script>
+    <script src="../../static/js/dashboard.js"></script>
+							
     {% endblock %}
     
 </html>

@@ -20,6 +20,7 @@ today = datetime.date.today()
 
 class Events(APIView):
     def post(self, request, *args, **kwargs):
+            Client.rtm_connect()
             # slack_message = request.data
         # if Client.rtm_connect(with_team_state=False):
         
