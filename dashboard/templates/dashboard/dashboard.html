@@ -6,12 +6,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 		<!-- Main -->
 			<section id="main" class="wrapper">
-                    <div id="app" style="display: flex; align-items: center;justify-content: center; width:100vw; margin-top:7em; flex-direction: column">
+                    <div id="app" style="display: flex; align-items: center; width:100vw; margin-top:7em; flex-direction: column; min-height: 100vh;">
                       <div class = "w-75 p-2 bg-primary m-3 px-3" style="border-radius:1em; display:flex; align-items: center;">
                        <h2 class = "text-white"> What's up, {{request.user}} </h2>
                       </div>
                       <div class = "dashboardCompWrapper" style="width: 80vw; display:flex; flex-wrap:wrap;">
-                        <dashboardcomponent :model="model" v-for="model in models" style="width:40vw;"/>
+                        <dashboardcomponent :model="model" v-for="model in models" style="width:20vw;"/>
                       </div>
                     </div>
 
@@ -26,6 +26,7 @@
     
     <script src="../../static/js/record.js"></script>
     <script src="../../static/js/pastItems.js"></script>
+    <script src="../../static/js/futureItems.js"></script>
     <script src="../../static/js/component.js"></script>
     <script src="../../static/js/dashboard.js"></script>
 							

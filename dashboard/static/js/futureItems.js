@@ -1,15 +1,20 @@
-const pastItems = {
+const futureItems = {
     template:
     `
-    <ul>
-       <li v-for="item in pastItems">{{item.name}}</li>
-    </ul>
- 
+    <template>
+      <div class = "futureItems" v-if="futureItems.length > 0">
+         <record v-for="item in futureItems" :record="item" :model="model"/>
+      </div>
+      <span v-else>Nothing coming up</span>
+    </template>
     `,
     data(){
        return{
  
        }
     },
-    props:['pastItems']
+    props:['futureItems','model'],
+    components:{
+      record
+  }
  }

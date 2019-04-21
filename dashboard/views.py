@@ -11,3 +11,4 @@ def dashboard(request):
     #order_id = request.session.get('order_id')
     return render(request,'dashboard/dashboard.html')
 
+
