@@ -9,6 +9,6 @@ def dashboard(request):
     title =   'Dashboard | Jersey City | Arts on the Hudson'
     
     #order_id = request.session.get('order_id')
-    return render(request,'dashboard/dashboard.html')
+    return render(request,'dashboard/dashboard.html',{'title':title})
 
 
