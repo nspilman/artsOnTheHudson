@@ -2,14 +2,14 @@ const record = {
     template:
     `
     <div class = "d-flex border py-1">
-    <div class = "col-sm-6">
+    <div class = "mx-3">
     <span>
     <a :href="'/'+model+'/'+record.url" target = "_blank"> 
        {{record.name}}
     </a>
     </span>
     </div>
-    <div class = "col-sm-6">
+    <div>
      {{record.date }}
     </div>
     </div>

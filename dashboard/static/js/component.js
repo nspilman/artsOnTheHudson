@@ -66,7 +66,7 @@ const dashboardcomponent =  {
 
           },
           futureRecords(){
-             return this.records.filter(record => new Date(record.date) > new Date())  
+             return this.records.filter(record => (new Date(record.date) > new Date() || !record.date)) 
           }
         },
         components:{
