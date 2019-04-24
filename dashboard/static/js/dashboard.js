@@ -18,10 +18,6 @@ var app = new Vue({
             name:"media",
             endpoint:"/api/media/"
          },
-         {
-            name:"Work and Time Logging",
-            endpoint:"/api/events/"
-         }
       ]
     },
     methods:{

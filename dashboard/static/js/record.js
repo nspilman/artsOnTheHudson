@@ -1,7 +1,7 @@
 const record = {
     template:
     `
-    <div class = "row border py-1">
+    <div class = "d-flex border py-1">
     <div class = "col-sm-6">
     <span>
     <a :href="'/'+model+'/'+record.url" target = "_blank"> 

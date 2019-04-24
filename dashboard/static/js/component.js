@@ -1,6 +1,6 @@
 const dashboardcomponent =  {
     template: `
-    <div class = "card p-4">
+    <div class = "card col-sm-3 p-4">
       <div v-if="pastRecords.length > 0"  class = "row">
          <div class = "col-sm-6">
             <h2> 
@@ -21,8 +21,14 @@ const dashboardcomponent =  {
         </h2>
          </div>
       </div>
+      <a :href="'/admin/website/'+model.name+'/add/'" target="_blank">
+         <button class = " border border-primary m-1">
+            <h4>Create New {{model.name}} </h4>
+         </button>
+      </a>
       <futureItems v-if="futureOrPast=='past'" :futureItems="futureRecords" :model="model.name"/>
-   </div>`,
+     
+      </div>`,
     data(){
         return{
            records:null,

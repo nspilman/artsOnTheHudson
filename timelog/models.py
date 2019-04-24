@@ -10,6 +10,6 @@ class Timelog(models.Model):
 
 
     def __str__(self):
-        return self.person + ' ' + self.description + ' - ' + self.description
+        return self.person.username + ' ' + self.description + ' - ' + self.description
 
 # Create your models here.

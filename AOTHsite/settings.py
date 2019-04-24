@@ -29,11 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'paypal.standard.ipn',
     'corsheaders',
 
     #third party apps
-    'pagedown',
     'markdown_deux',
     'easy_thumbnails',
     'rest_framework',
