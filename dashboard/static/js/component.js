@@ -8,7 +8,7 @@ const dashboardcomponent =  {
             </h2>
          </div>
          <div class = "col-sm-6" class="text-white">
-            <button class = "btn w-100 text-white" style="font-size:10px;" @click="togglePastFuture"> 
+            <button class = "btn w-75 text-white" style="font-size:10px;" @click="togglePastFuture"> 
                {{futureOrPast}} <br>{{model.name}}
             </button>
          </div>   
