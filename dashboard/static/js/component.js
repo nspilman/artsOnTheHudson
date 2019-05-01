@@ -44,7 +44,7 @@ const dashboardcomponent =  {
         methods:{
            async getRecords(){
                 const resp =  await axios.get(this.model.endpoint)
-                const data = await resp.data
+                const data = await resp.data;
                 const records = await data.map(record => JSON.parse(record))
                 this.records = records
              },
