@@ -174,8 +174,8 @@ ENV_PATH = os.path.abspath(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(ENV_PATH, 'static/')
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(ENV_PATH, 'mediaroot/')
-MEDIA_URL = '/mediaroot/'
+MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
+MEDIA_URL = '/media/'
 
 #PayPal Settings
 
