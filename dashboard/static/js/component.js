@@ -1,6 +1,6 @@
 const dashboardcomponent =  {
     template: `
-    <div class = "card p-4 border text-white bg-dark border-dark" style="border-radius:20px;">
+    <div class = "card p-4 border text-white bg-dark border-dark" style="border-radius:20px; min-width:25vw;">
       <div v-if="pastRecords.length > 0"  class = "row">
          <div class = "col-sm-6">
             <h2 class="text-white"> 
