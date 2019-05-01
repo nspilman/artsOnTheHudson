@@ -103,6 +103,13 @@ def media(request):
     variables = {'title':title, 'cssclass':cssclass, 'videos':videos}
     return render(request,'website/media.html', variables)
 
+def video(request,videourl):
+    cssclass = 'amedia'
+    title = 'Promotional Media | Jersey City | Arts on the Hudson'
+    video= Media.objects.get(url=videourl)
+    variables = {'title':title, 'cssclass':cssclass, 'promo':video}
+    return render(request,'website/video.html', variables)
+
 def contact(request):
     cssclass = 'acontact'
     title = 'Contact | Jersey City | Arts on the Hudson'
