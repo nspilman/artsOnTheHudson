@@ -1,12 +1,10 @@
 const dashboardcomponent =  {
     template: `
     <div class = "card p-4 border text-white bg-dark border-dark" style="border-radius:20px;">
-      <div v-if="pastRecords.length > 0"  class = "row">
-         <div class = "col-sm-7">
+      <div v-if="pastRecords.length > 0"  style="display:flex; justify-content:space-between;">
             <h2 class="text-white"> 
              {{model.name.toUpperCase()}}
             </h2>
-         </div>
          <div class = "col-sm-4" class="text-white">
             <button class = "btn w-100 text-white" style="font-size:10px;" @click="togglePastFuture"> 
                {{futureOrPast}} <br>{{model.name}}
