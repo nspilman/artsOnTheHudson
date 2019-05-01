@@ -1,9 +1,10 @@
 const dashboardcomponent =  {
     template: `
     <div class = "card p-4 border text-white bg-dark border-dark" style="border-radius:20px;">
+    <img src="https://image.flaticon.com/icons/svg/107/107115.svg" class ="bg-white text-right" style="cursor:pointer" @click="getRecords">
       <div v-if="pastRecords.length > 0"  style="display:flex; justify-content:space-between;">
             <h2 class="text-white"> 
-             {{model.name.toUpperCase()}}
+            {{model.name.toUpperCase()}}
             </h2>
          <div class = "col-sm-4" class="text-white">
             <button class = "btn w-100 text-white" style="font-size:10px;" @click="togglePastFuture"> 
@@ -41,6 +42,7 @@ const dashboardcomponent =  {
         },
         methods:{
            async getRecords(){
+              console.log('running');
                 const resp =  await axios.get(this.model.endpoint)
                 const data = await resp.data;
                 const records = await data.map(record => JSON.parse(record))
@@ -57,7 +59,7 @@ const dashboardcomponent =  {
              }
             },
         created(){
-           this.getRecords()
+           this.getRecords();
         },
         computed:{
           pastRecords(){
