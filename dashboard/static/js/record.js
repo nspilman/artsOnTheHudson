@@ -1,5 +1,5 @@
 const record = {
-    template:
+    template: 
     `
     <div class = "d-flex py-1">
     <div class = "mx-3">
