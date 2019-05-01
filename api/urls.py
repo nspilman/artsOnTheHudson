@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import GenericSitemap
-from website.models import Education, Events, Media
+from website.models import Education, Events, Promotion
 
 from . import views
 

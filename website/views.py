@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Education, Events, Staff, Media, Contacts, Incomingmessages, Bulletin, Event_signup, Press
+from .models import Education, Events, Staff, Promotion, Contacts, Incomingmessages, Bulletin, Event_signup, Press
 from people.models import Person
 from django.core.mail import send_mail
 from django.contrib.staticfiles.templatetags.staticfiles import static
@@ -99,14 +99,14 @@ def program(request,programurl):
 def media(request):
     cssclass = 'amedia'
     title = 'Promotional Media | Jersey City | Arts on the Hudson'
-    videos = Media.objects.all()
+    videos = Promotion.objects.all()
     variables = {'title':title, 'cssclass':cssclass, 'videos':videos}
     return render(request,'website/media.html', variables)
 
 def video(request,videourl):
     cssclass = 'amedia'
     title = 'Promotional Media | Jersey City | Arts on the Hudson'
-    video= Media.objects.get(url=videourl)
+    video= Promotion.objects.get(url=videourl)
     variables = {'title':title, 'cssclass':cssclass, 'promo':video}
     return render(request,'website/video.html', variables)
 

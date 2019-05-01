@@ -50,7 +50,7 @@ class Event_signup(models.Model):
     def __str__(self):
         return str(self.parent_event) + ' - ' + str(self.name)
 
-class Media(models.Model):
+class Promotion(models.Model):
     name = models.CharField(max_length = 100)
     blurb = models.CharField(max_length = 300)
     photo = models.ImageField(upload_to = 'images', default='website/static/website/images/davidStaffLogo.jpg')

@@ -16,7 +16,7 @@ var app = new Vue({
          },
          {
             name:"promotion",
-            endpoint:"/api/media/"
+            endpoint:"/api/promotion/"
          },
       ]
     },

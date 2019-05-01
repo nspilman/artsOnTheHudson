@@ -1,6 +1,6 @@
 from django.shortcuts import render
 # from classes.models import Class
-from website.models import Events, Education, Media
+from website.models import Events, Education, Promotion
 from django.contrib.auth.decorators import login_required
 
 @login_required()

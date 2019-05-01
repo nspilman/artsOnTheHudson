@@ -9,7 +9,7 @@ import random
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.apps import apps
-from website.models import Events, Education, Media, Press
+from website.models import Events, Education, Promotion, Press
 from django.forms.models import model_to_dict
 from datetime import datetime
 from django.core.serializers.json import DjangoJSONEncoder
