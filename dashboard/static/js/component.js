@@ -42,7 +42,6 @@ const dashboardcomponent =  {
         },
         methods:{
            async getRecords(){
-              console.log('running');
                 const resp =  await axios.get(this.model.endpoint)
                 const data = await resp.data;
                 const records = await data.map(record => JSON.parse(record))
@@ -64,7 +63,7 @@ const dashboardcomponent =  {
         computed:{
           pastRecords(){
             if(this.records){
-            return this.records.filter(record => new Date(record.date) < new Date())
+            return this.records.filter(record => new Date(record.date) <= new Date())
             }
             else{
                return [];
