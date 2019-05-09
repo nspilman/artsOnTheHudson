@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'markdown_deux',
     'easy_thumbnails',
     'rest_framework',
+    # 'djstripe',
+   
     #home grown apps
 
     'website',
