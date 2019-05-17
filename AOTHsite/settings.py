@@ -167,6 +167,13 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn="https://1f9bc7118f1f4be8bc93f538115ae810@sentry.io/1462322",
+    integrations=[DjangoIntegration()]
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
