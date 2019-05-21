@@ -19,7 +19,6 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/',include('blog.urls'), name = 'blog'),
     path('slack/', include('slackbots.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('api/', include('api.urls')),

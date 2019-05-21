@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'dashboard',
     'people',
     'slackbots',
-    'blog',
     'content',
     'timelog',
     # 'project',
