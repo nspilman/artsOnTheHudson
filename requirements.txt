@@ -74,7 +74,7 @@ style==1.1.0
 ufw==0.35
 unattended-upgrades==0.1
 update==0.0.1
-urllib3==1.24.1
+urllib3==1.24.2
 vine==1.2.0
 virtualenv==16.0.0
 Werkzeug==0.14.1
