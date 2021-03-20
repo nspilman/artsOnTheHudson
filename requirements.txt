@@ -31,7 +31,7 @@ gunicorn==19.9.0
 httplib2==0.12.1
 idna==2.8
 itsdangerous==1.1.0
-Jinja2==2.10
+Jinja2==2.11.3
 josepy==1.0.1
 jsonpatch==1.10
 jsonpointer==1.9
