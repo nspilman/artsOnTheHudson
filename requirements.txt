@@ -67,7 +67,7 @@ python-systemd==231
 pytz==2018.9
 PyYAML==3.11
 requests==2.21.0
-rsa==4.0
+rsa==4.1
 six==1.12.0
 ssh-import-id==5.5
 style==1.1.0
