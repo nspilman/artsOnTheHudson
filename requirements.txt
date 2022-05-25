@@ -55,7 +55,7 @@ pycurl==7.43.0
 pyee==5.0.0
 pygobject==3.20.0
 PyICU==1.9.2
-PyJWT==1.7.1
+PyJWT==2.4.0
 pyOpenSSL==17.3.0
 pyparsing==2.0.3
 pyRFC3339==1.0
